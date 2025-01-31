@@ -1,0 +1,650 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-margin-top: -1px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+span {
+  color: #2e7d32;
+}
+
+body > *:not(main) {
+  padding: 0 3em;
+}
+
+li {
+  list-style: none;
+}
+
+body > header {
+  width: 100vw;
+  height: 65px;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+}
+
+.logo-judul {
+  display: flex;
+  gap: 1em;
+}
+
+.logo-judul img {
+  width: 50px;
+}
+
+.logo-judul h1 {
+  color: #2e7d32;
+}
+
+header.active {
+  transition: 0.2s ease-in-out;
+  background-color: black;
+}
+
+body > header,
+nav,
+nav ul {
+  display: flex;
+  background: transparent;
+  /* background-color: #2E7D32; warna saat slide ke bawah */
+  backdrop-filter: blur(20px);
+  z-index: 1;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 1em;
+  transition: 0.1s ease-in-out;
+}
+
+nav ul li a:hover {
+  transition: 0.1s ease-in-out;
+  background-color: #2e7d32;
+}
+
+/* main */
+main {
+  width: 100vw;
+  display: grid;
+}
+
+main section:not(:first-of-type) {
+  width: 75vw;
+  padding: 3em;
+}
+
+main > * {
+  width: 100%;
+  height: 100vh;
+}
+
+main > * header {
+  font-size: 2em;
+  font-weight: 800;
+}
+
+/* hero */
+#hero {
+  background: url(../images/herosecimg.png);
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  grid-column: span 2;
+  grid-row: 1;
+}
+
+#hero h2 {
+  color: white;
+  font-size: 4em;
+  font-weight: 800;
+}
+
+#hero p {
+  color: #999;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+#hero a {
+  margin-top: 2em;
+  padding: 1em 2em;
+  text-decoration: none;
+  color: white;
+  border: 2px solid #2e7d32;
+  background: transparent;
+  backdrop-filter: blur(5px);
+  overflow: hidden; /* Untuk menghindari animasi keluar dari tombol */
+  position: relative;
+  z-index: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+#hero a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0%;
+  height: 100%;
+  background-color: rgba(0, 128, 0, 0.7); /* Warna hijau */
+  transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+  z-index: -1; /* Pastikan warna berada di bawah teks */
+  transform: translateX(-50%);
+}
+
+#hero a:hover {
+  transform: scale(1.05); /* Efek memperbesar tombol saat di-hover */
+}
+
+#hero a:hover::before {
+  width: 400%; /* Memperbesar animasi ke seluruh tombol */
+  left: 0%; /* Memulai dari tengah ke kedua ujung */
+}
+
+/* tentang */
+#tentang {
+  background-color: #f9fbe7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-row: 2;
+  grid-column: 1;
+}
+
+#tentang article {
+  width: 620px;
+}
+
+#tentang h2 {
+  border-bottom: 5px solid #2e7d32;
+}
+
+#tentang p {
+  margin-top: 2em;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.tentang-img {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 2em 0;
+}
+
+.tentang-img img {
+  border-radius: 1em;
+}
+
+.tentang-img1,
+.tentang-img1 img {
+  width: 250px;
+  position: relative;
+  transform: translate(-20px, -35px);
+}
+
+.tentang-img2,
+.tentang-img2 img {
+  width: 230px;
+  position: absolute;
+  transform: translate(25px, 60px);
+}
+
+.tentang-img3,
+.tentang-img3 img {
+  width: 240px;
+  position: absolute;
+  transform: translate(-80px, 10px);
+}
+
+/* manfaat */
+#manfaat {
+  background-color: #bbdefb;
+  display: flex;
+  align-items: center;
+  grid-row: 3;
+  grid-column: 1;
+}
+
+#manfaat article {
+  width: 100%;
+}
+
+#manfaat h2 {
+  width: fit-content;
+  border-bottom: 5px solid #2e7d32;
+  margin-top: 1em;
+}
+
+#manfaat ul {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#manfaat ul li {
+  background-color: #8d6e63;
+  padding: 2.5em;
+  font-size: 1.5em;
+  font-weight: 400;
+  text-shadow: 1px 1px #0f0f0f;
+  border-radius: 1em;
+  color: white;
+}
+
+#manfaat ul li:nth-of-type(1) {
+  background: url(../images/manfaat1img.jpg);
+  background-position: center;
+  background-position-y: -560px;
+}
+
+#manfaat ul li:nth-of-type(2) {
+  background: url(../images/manfaat2img.jpg);
+  background-position: center;
+  background-position-y: -720px;
+}
+
+#manfaat ul li:nth-of-type(3) {
+  background: url(../images/manfaat3img.jpg);
+  background-position: center;
+  background-position-x: -100px;
+  background-position-y: -575px;
+}
+
+/* gabung */
+#gabung {
+  background: url(../images/gabungimg.jpg) center;
+  background-position-y: bottom;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  grid-row: 4;
+  grid-column: 1;
+  gap: 1em;
+}
+
+#gabung article {
+  width: 580px;
+}
+
+#gabung h2 {
+  border-bottom: 5px solid #2e7d32;
+  margin-top: 1em;
+}
+
+#gabung article p {
+  margin-top: 2em;
+  font-size: 2em;
+}
+
+#gabung form {
+  background-color: #2e7d32;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  border-radius: 1em;
+  padding: 1em;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#gabung form input {
+  padding: 0.8em;
+  margin: 0.5em 0em;
+}
+
+.together {
+  justify-content: space-between;
+}
+
+.together > * {
+  width: 45%;
+}
+
+.fullname input {
+  width: 100%;
+}
+
+.together > * > p input {
+  width: 100%;
+}
+
+.together {
+  display: flex;
+  gap: 1em;
+}
+
+.together2 {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.together2 p {
+  display: flex;
+  gap: 2em;
+}
+
+textarea {
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
+  padding: 1em;
+}
+
+#gabung form button {
+  width: 100%;
+  padding: 1em;
+  border: none;
+  color: white;
+  background-color: #2e7d32;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#gabung form button:hover {
+  transition: 0.2s ease-in-out;
+  color: black;
+  background-color: #56e45d;
+}
+
+/* aside */
+aside {
+  width: 25vw;
+  height: 100%;
+  padding: 4em 2em;
+  justify-self: flex-end;
+  grid-row: span 3;
+  grid-column: 2;
+  background-color: #c8e6c9;
+}
+
+#galeri h2 {
+  color: white;
+}
+
+#galeri,
+.image-container {
+  background-color: #8d6e63;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container,
+.image-container > * > img {
+  width: 100%;
+}
+
+.image-container > * > img {
+  border: 2px solid white;
+  border-radius: 1em;
+}
+.image-container > * > p {
+  color: white;
+}
+
+.image-container > * {
+  padding: 2em 0;
+  border-top: 2px solid #c8e6c9;
+}
+
+/* footer */
+footer {
+  background-color: #2e7d32;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .logo-judul {
+    gap: 0.5em;
+  }
+
+  .logo-judul img {
+    width: 30px;
+  }
+
+  .logo-judul h1 {
+    font-size: 1em;
+  }
+
+  /* NAVIGASI */
+  nav ul {
+    width: 50vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100vw; /* Tersembunyi di awal */
+    background-color: black; /* Latar belakang menu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    transition: right 0.3s ease-in-out; /* Transisi untuk membuka menu */
+    z-index: 999; /* Pastikan di atas elemen lain */
+    transform: translateY(-1em);
+  }
+
+  nav ul.active {
+    right: -10vw; /* Tampilkan menu */
+  }
+
+  /* HAMBURGER MENU */
+  #hamburger-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer; /* Kursor pointer */
+    z-index: 1001; /* Pastikan di atas elemen lain */
+  }
+
+  #hamburger-icon div {
+    width: 100%;
+    height: 5px;
+    background-color: white; /* Warna garis */
+    transition: 0.2s ease-in-out; /* Transisi saat berubah */
+  }
+
+  #hamburger-icon.active div:nth-of-type(1) {
+    transform: translateY(12px) rotate(45deg);
+  }
+
+  #hamburger-icon.active div:nth-of-type(2) {
+    opacity: 0; /* Hilangkan garis tengah */
+  }
+
+  #hamburger-icon.active div:nth-of-type(3) {
+    transform: translateY(-12px) rotate(-45deg);
+  }
+
+  main > section:not(:first-of-type),
+  aside {
+    width: 100vw;
+  }
+
+  #hero h2 {
+    font-size: 1.5em;
+  }
+
+  #hero p {
+    font-size: 1em;
+  }
+
+  #manfaat {
+    height: auto;
+  }
+
+  #tentang,
+  #gabung {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #tentang article {
+    width: 100%;
+  }
+
+  #tentang h2,
+  #manfaat h2,
+  #gabung h2 {
+    font-size: 0.8em;
+  }
+
+  #tentang p,
+  #gabung article p {
+    font-size: 0.8em;
+  }
+
+  .tentang-img1,
+  .tentang-img1 img {
+    width: 100px;
+    transform: translate(0px, 0px);
+  }
+
+  .tentang-img2,
+  .tentang-img2 img {
+    width: 90px;
+    transform: translate(10px, 35px);
+  }
+
+  .tentang-img3,
+  .tentang-img3 img {
+    width: 95px;
+    transform: translate(-30px, 20px);
+  }
+
+  #manfaat ul li {
+    font-size: 1em;
+  }
+
+  #gabung article,
+  #gabung form {
+    width: 100%;
+  }
+
+  #gabung form {
+    height: 100%;
+    font-size: 0.7em;
+  }
+
+  #gabung form input,
+  textarea,
+  #gabung form button {
+    font-size: 1em;
+    padding: 0.8em;
+    margin: 0;
+  }
+
+  aside {
+    grid-row: 5;
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1560px) {
+  .logo-judul {
+    gap: 0.8em;
+  }
+
+  .logo-judul img {
+    width: 40px;
+  }
+
+  .logo-judul h1 {
+    font-size: 2em;
+  }
+
+  #hero h2 {
+    font-size: 3em;
+  }
+
+  #hero p {
+    font-size: 1.2em;
+  }
+
+  #manfaat,
+  #gabung {
+    height: auto;
+  }
+
+  #tentang article {
+    width: 50%;
+  }
+
+  #tentang h2,
+  #manfaat h2,
+  #gabung h2 {
+    font-size: 1em;
+  }
+
+  #tentang p,
+  #gabung article p {
+    font-size: 1em;
+  }
+
+  .tentang-img1,
+  .tentang-img1 img {
+    width: 200px;
+    transform: translate(5px, -20px);
+  }
+
+  .tentang-img2,
+  .tentang-img2 img {
+    width: 180px;
+    transform: translate(25px, 55px);
+  }
+
+  .tentang-img3,
+  .tentang-img3 img {
+    width: 190px;
+    transform: translate(-60px, 20px);
+  }
+
+  #gabung {
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2em;
+  }
+
+  #gabung article {
+    width: 100%;
+  }
+
+  #gabung p {
+    font-size: 1.2em;
+  }
+
+  #gabung form {
+    width: 100%;
+  }
+}
